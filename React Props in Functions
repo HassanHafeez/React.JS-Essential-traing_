@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN of react: ADD React in your Page -->
+    <!-- React: Everything in react -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <!-- React-DOM -->
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel Package -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+<body>
+    <h1>This is HTML without React :)</h1>
+    <div id="root"></div>
+    <!-- Babel Script -->
+    <script type="text/babel">
+        function MathFun(props){
+            return(
+                <section>
+                <img
+                    height={250} width={425}
+                    src="https://images.pexels.com/photos/220301/pexels-photo-220301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="maths calculator"
+                    />
+                <p>This is Maths Function with props...{props.Math[0]}, {props.Math[1]}, & {props.Math[2]}.</p>
+                </section>
+            );
+        }
+        function MathF(props){
+            return(
+                <p>This is with Map arrow Function. {props.Math.map((data)=>(
+                        <li key={data.id}>
+                            {data.title}
+                            </li>
+                )
+                
+                )}
+                    </p>
+            )
+        }
+        
+        function App(){
+            return(
+                <div>
+                    <MathFun  Math= {Math} />
+                    <MathF Math={MathObj}/>
+                </div>
+            );
+        }
+        
+        const Math=[
+            "Differential Equation",
+            "Calculus",
+            "Linear Algebra"
+        ];
+
+        const MathObj= Math.map((book,i)=>({
+           id:i,
+           title:book
+        }))
+        
+        ReactDOM.render(
+            <App/>,
+            document.getElementById("root")
+        );
+    </script>
+</body>
+</html>
